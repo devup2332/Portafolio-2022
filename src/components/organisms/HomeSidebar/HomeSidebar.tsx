@@ -1,4 +1,4 @@
-import { IconButton, Menu, MenuItem } from "@mui/material";
+import { IconButton, Menu, MenuItem, Tooltip } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useTranslation } from "react-i18next";
 import { MouseEvent, useRef, useState } from "react";
@@ -6,6 +6,8 @@ import { useAppDispatch, useAppSelector } from "../../../store";
 import { setSidebar } from "../../../store/actions/SidebarActions/SidebarActions";
 import CustomButton from "../../atoms/CustomButton/CustomButton";
 import { changeLanguage } from "i18next";
+import { languageOptions } from "../../../lib/utils/LanguageOptions";
+import { headerLinks } from "../../../lib/utils/HeaderLinks";
 
 const HomeSidebar = () => {
   const { t, i18n } = useTranslation("index");
@@ -34,8 +36,11 @@ const HomeSidebar = () => {
       }}
       onClick={closeSidebar}
     >
-      <div className="w-9/12 bg-white shadow-md h-full max-w-xs" ref={navRef}>
-        <nav className="p-7 grid gap-5 h-fit">
+      <div
+        className="w-9/12 p-7 bg-white shadow-md h-full max-w-xs flex flex-col justify-between"
+        ref={navRef}
+      >
+        <nav className="grid gap-5 h-fit">
           <div className="flex items-center justify-between">
             <h1 className="font-extrabold">{t("home.sidebar.title")}</h1>
             <IconButton
@@ -51,33 +56,57 @@ const HomeSidebar = () => {
             <li className="py-2">{t("home.sidebar.options.contact")}</li>
           </ul>
         </nav>
-        <div>
+        <div className="grid gap-5 justify-start">
           <CustomButton
             variant="text"
-            id="languageButton"
-            aria-haspopup="true"
+            className="flex gap-3 w-fit"
             onClick={(e: any) => {
               setButtonElement(e.currentTarget);
             }}
           >
-            {<span>{i18n.language}</span>}
+            {languageOptions.map(({ Icon, label, id }) => {
+              const selected = id === i18n.language;
+              if (selected)
+                return (
+                  <>
+                    <Icon className="w-5 h-5" />
+                    {label}
+                  </>
+                );
+            })}
           </CustomButton>
           <Menu
             open={openMenuLanguage}
-            id="languageMenu"
             anchorEl={buttonElement}
             onClose={() => setButtonElement(null)}
-            MenuListProps={{
-              "aria-labelledby": "languageButton",
-            }}
           >
-            <MenuItem onClick={() => handleCloseMenuLanguage("en")}>
-              en
-            </MenuItem>
-            <MenuItem onClick={() => handleCloseMenuLanguage("es")}>
-              es
-            </MenuItem>
+            {languageOptions.map(({ Icon, label, id }, index) => {
+              return (
+                <MenuItem
+                  key={index}
+                  className="flex gap-3"
+                  onClick={() => {
+                    changeLanguage(id);
+                    setButtonElement(null);
+                  }}
+                >
+                  <Icon className="w-5 h-5" />
+                  {label}
+                </MenuItem>
+              );
+            })}
           </Menu>
+          <div className="flex gap-1">
+            {headerLinks.map(({ Icon, label }, index) => {
+              return (
+                <Tooltip key={index} title={label}>
+                  <IconButton>
+                    <Icon className="text-black fill-current w-5 h-5" />
+                  </IconButton>
+                </Tooltip>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
