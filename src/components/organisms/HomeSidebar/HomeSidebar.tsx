@@ -34,7 +34,7 @@ const HomeSidebar = () => {
       }}
       onClick={closeSidebar}
     >
-      <div className="w-9/12 bg-white shadow-md h-full" ref={navRef}>
+      <div className="w-9/12 bg-white shadow-md h-full max-w-xs" ref={navRef}>
         <nav className="p-7 grid gap-5 h-fit">
           <div className="flex items-center justify-between">
             <h1 className="font-extrabold">{t("home.sidebar.title")}</h1>

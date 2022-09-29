@@ -12,6 +12,9 @@ module.exports = {
       },
       fontFamily: {
         "Commissioner": "Commissioner" 
+      },
+      maxWidth: {
+        "8xl": "1500px"
       }
     },
   },
