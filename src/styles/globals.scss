@@ -1,3 +1,8 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
@@ -36,7 +41,3 @@ body {
     src: url("../fonts/Commissioner-ExtraBold.ttf");
   }
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
