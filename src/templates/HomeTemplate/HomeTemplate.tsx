@@ -8,11 +8,11 @@ interface HomeTemplateProps {
 
 const HomeTemplate = ({ children, title }: HomeTemplateProps) => {
   return (
-    <div>
+    <div className="h-full">
       <Head>
         <title>{title}</title>
       </Head>
-      <div>
+      <div className="h-full">
         <HomeHeader />
         {children}
       </div>

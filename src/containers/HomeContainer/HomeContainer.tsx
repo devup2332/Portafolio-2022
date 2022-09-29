@@ -5,7 +5,7 @@ import { HomeVector } from "../../components/atoms/vectors";
 const HomeContainer = () => {
   const { t } = useTranslation("index");
   return (
-    <div className="h-screen flex justify-center items-center font-Commissioner bg-primary">
+    <div className="h-full flex justify-center items-center font-Commissioner bg-primary">
       <div className="flex items-center w-10/12 max-w-md lg:max-w-8xl lg:gap-10 2xl:gap-70">
         <div className="text-white grid gap-5 lg:gap-12">
           <h1 className="text-center text-4xl font-bold lg:text-6xl lg:text-left 2xl:text-8xl">{t("home.title")}</h1>
