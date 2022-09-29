@@ -6,6 +6,8 @@ import "../styles/globals.scss";
 import theme from "../theme";
 import enLang from "../translates/en/index.json";
 import esLang from "../translates/es/index.json";
+import { Provider as ReduxProvider } from "react-redux";
+import { store } from "../store";
 
 i18next.init({
   lng: "en",
@@ -24,11 +26,13 @@ i18next.init({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
-      <I18nextProvider i18n={i18next}>
-        <Component {...pageProps} />
-      </I18nextProvider>
-    </ThemeProvider>
+    <ReduxProvider store={store}>
+      <ThemeProvider theme={theme}>
+        <I18nextProvider i18n={i18next}>
+          <Component {...pageProps} />
+        </I18nextProvider>
+      </ThemeProvider>
+    </ReduxProvider>
   );
 }
 

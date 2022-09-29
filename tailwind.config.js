@@ -8,6 +8,7 @@ module.exports = {
       colors:{
         'primary': '#0F121D',
         'accent': '#820505',
+        'black-opacity': "rgba(0,0,0,0.5)"
       },
       fontFamily: {
         "Commissioner": "Commissioner" 

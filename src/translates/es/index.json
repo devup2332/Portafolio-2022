@@ -2,6 +2,25 @@
   "home": {
     "title": "Hola, Soy diego",
     "description": "Soy un desarrollador con más de 3 años de experiencia en desarrollo web frontend y backend. Todo lo que aprendí fue gracias a mi gran pasión por crear productos digitales.",
-    "button": "Ver mis projectos"
+    "button": "Ver mis projectos",
+    "header": {
+      "title": "Diego Rojas",
+      "options": {
+        "tutorials": "Tutorials",
+        "projets": "Proyectos",
+        "contact": "Contacto"
+      }
+    },
+    "sidebar": {
+      "title": "Diego Rojas",
+      "translate": {
+        "button": "Cambiar Idioma"
+      },
+      "options": {
+        "tutorials": "Tutoriales",
+        "projects": "Proyectos",
+        "contact": "Contacto"
+      }
+    }
   }
 }

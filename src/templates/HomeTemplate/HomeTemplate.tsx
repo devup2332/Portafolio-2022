@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { HomeHeader, HomeSidebar } from "../../components/organisms";
 
 interface HomeTemplateProps {
   children: JSX.Element;
@@ -11,7 +12,11 @@ const HomeTemplate = ({ children, title }: HomeTemplateProps) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <div>{children}</div>
+      <div>
+        <HomeHeader />
+        {children}
+      </div>
+      <HomeSidebar />
     </div>
   );
 };

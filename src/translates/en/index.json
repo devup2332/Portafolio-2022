@@ -2,6 +2,25 @@
   "home": {
     "title": "Hi, I am Diego",
     "description": "Im a developer with over 3 years of experience in frontend and backend web development. All that ive learned was thanks to my great pasion for create digital products",
-    "button": "See my Progects"
+    "button": "See my Progects",
+    "header": {
+      "title": "Diego Rojas",
+      "options": {
+        "tutorials": "Tutorials",
+        "projects": "Projects",
+        "contact": "Contact"
+      }
+    },
+    "sidebar": {
+      "title": "Diego Rojas",
+      "translate": {
+        "button": "Change Language"
+      },
+      "options": {
+        "tutorials": "Tutorials",
+        "projects": "Projects",
+        "contact": "Contact"
+      }
+    }
   }
 }

@@ -4,7 +4,7 @@ import HomeTemplate from "../templates/HomeTemplate/HomeTemplate";
 
 const Home: NextPage = () => {
   return (
-    <HomeTemplate title="Home">
+    <HomeTemplate title="Home - Diego Rojas">
       <HomeContainer />
     </HomeTemplate>
   );
