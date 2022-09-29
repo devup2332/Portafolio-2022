@@ -1,4 +1,11 @@
-import { IconButton, Menu, MenuItem, Tooltip } from "@mui/material";
+import {
+  IconButton,
+  ListItemIcon,
+  ListItemText,
+  Menu,
+  MenuItem,
+  Tooltip,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useTranslation } from "react-i18next";
 import { setSidebar } from "../../../store/actions/SidebarActions/SidebarActions";
@@ -22,7 +29,7 @@ const HomeHeader = () => {
       <div className="flex justify-between items-center w-10/12 max-w-md m-auto lg:max-w-8xl">
         <h1 className="font-extrabold lg:hidden">{t("home.header.title")}</h1>
         <nav className="hidden lg:block">
-          <ul className="flex gap-12 text-sm cursor-pointer">
+          <ul className="flex gap-12 text-sm cursor-pointer list-none">
             <li className="transition-all hover:text-accent">
               {t("home.header.options.tutorials")}
             </li>
@@ -63,14 +70,15 @@ const HomeHeader = () => {
               return (
                 <MenuItem
                   key={index}
-                  className="flex gap-3"
                   onClick={() => {
                     changeLanguage(id);
                     setButtonElement(null);
                   }}
                 >
-                  <Icon className="w-5 h-5" />
-                  {label}
+                  <ListItemIcon>
+                    <Icon />
+                  </ListItemIcon>
+                  <ListItemText>{label}</ListItemText>
                 </MenuItem>
               );
             })}

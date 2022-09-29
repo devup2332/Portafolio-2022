@@ -1,6 +1,8 @@
+import { SvgIcon } from "@mui/material";
+
 const IconSpain = (props: any) => {
   return (
-    <svg
+    <SvgIcon
       viewBox="0 0 21 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -2753,7 +2755,7 @@ const IconSpain = (props: any) => {
           <rect width="21" height="15.6154" fill="white" />
         </clipPath>
       </defs>
-    </svg>
+    </SvgIcon>
   );
 };
 

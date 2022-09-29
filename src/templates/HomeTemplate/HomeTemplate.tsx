@@ -8,7 +8,7 @@ interface HomeTemplateProps {
 
 const HomeTemplate = ({ children, title }: HomeTemplateProps) => {
   return (
-    <div className="h-full">
+    <div className="h-full font-Commissioner">
       <Head>
         <title>{title}</title>
       </Head>

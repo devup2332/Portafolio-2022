@@ -3,7 +3,7 @@ const CustomButton = (props: any) => {
   const { color }: { color: "primary" | "secondary" | "success" } = props;
   const theme = useTheme();
   return (
-    <Button {...props} style={{ backgroundColor: theme.palette[color]?.main }}>
+    <Button {...props} >
       {props.children}
     </Button>
   );

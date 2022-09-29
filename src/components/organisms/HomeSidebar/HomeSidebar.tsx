@@ -1,4 +1,11 @@
-import { IconButton, Menu, MenuItem, Tooltip } from "@mui/material";
+import {
+  IconButton,
+  ListItemIcon,
+  ListItemText,
+  Menu,
+  MenuItem,
+  Tooltip,
+} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useTranslation } from "react-i18next";
 import { MouseEvent, useRef, useState } from "react";
@@ -50,10 +57,16 @@ const HomeSidebar = () => {
               <CloseIcon />
             </IconButton>
           </div>
-          <ul>
-            <li className="py-2">{t("home.sidebar.options.tutorials")}</li>
-            <li className="py-2">{t("home.sidebar.options.projects")}</li>
-            <li className="py-2">{t("home.sidebar.options.contact")}</li>
+          <ul className="list-none">
+            <li className="py-2 cursor-pointer hover:text-accent transition-all">
+              {t("home.sidebar.options.tutorials")}
+            </li>
+            <li className="py-2 cursor-pointer hover:text-accent transition-all">
+              {t("home.sidebar.options.projects")}
+            </li>
+            <li className="py-2 cursor-pointer hover:text-accent transition-all">
+              {t("home.sidebar.options.contact")}
+            </li>
           </ul>
         </nav>
         <div className="grid gap-5 justify-start">
@@ -84,14 +97,15 @@ const HomeSidebar = () => {
               return (
                 <MenuItem
                   key={index}
-                  className="flex gap-3"
                   onClick={() => {
                     changeLanguage(id);
                     setButtonElement(null);
                   }}
                 >
-                  <Icon className="w-5 h-5" />
-                  {label}
+                  <ListItemIcon>
+                    <Icon />
+                  </ListItemIcon>
+                  <ListItemText>{label}</ListItemText>
                 </MenuItem>
               );
             })}
