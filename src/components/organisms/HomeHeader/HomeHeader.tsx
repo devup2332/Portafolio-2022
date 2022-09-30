@@ -1,4 +1,5 @@
 import {
+  AppBar,
   IconButton,
   ListItemIcon,
   ListItemText,
@@ -25,7 +26,11 @@ const HomeHeader = () => {
     dispatch(setSidebar(true));
   };
   return (
-    <div className="fixed top-0 left-0 w-full z-10 py-3 lg:py-7 text-white flex items-center bg-primary z-10 shadow-md">
+    <AppBar
+      position="fixed"
+      className="py-3 lg:py-7 text-white bg-primary"
+      elevation={1}
+    >
       <div className="flex justify-between items-center w-10/12 max-w-md m-auto lg:max-w-8xl">
         <h1 className="font-extrabold text-lg lg:hidden">
           {t("home.header.title")}
@@ -111,7 +116,7 @@ const HomeHeader = () => {
           <MenuIcon className="text-white" />
         </IconButton>
       </div>
-    </div>
+    </AppBar>
   );
 };
 
