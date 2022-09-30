@@ -6,6 +6,7 @@
     "header": {
       "title": "Diego Rojas",
       "options": {
+        "home": "Home",
         "tutorials": "Tutorials",
         "projects": "Projects",
         "contact": "Contact"
@@ -17,10 +18,14 @@
         "button": "Change Language"
       },
       "options": {
+        "home": "Home",
         "tutorials": "Tutorials",
         "projects": "Projects",
         "contact": "Contact"
       }
     }
+  },
+  "projects": {
+    "title": "Projects"
   }
 }

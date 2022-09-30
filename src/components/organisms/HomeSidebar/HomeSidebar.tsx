@@ -59,6 +59,9 @@ const HomeSidebar = () => {
           </div>
           <ul className="list-none">
             <li className="py-2 cursor-pointer hover:text-accent transition-all">
+              {t("home.sidebar.options.home")}
+            </li>
+            <li className="py-2 cursor-pointer hover:text-accent transition-all">
               {t("home.sidebar.options.tutorials")}
             </li>
             <li className="py-2 cursor-pointer hover:text-accent transition-all">
@@ -77,14 +80,17 @@ const HomeSidebar = () => {
               setButtonElement(e.currentTarget);
             }}
           >
-            {languageOptions.map(({ Icon, label, id }) => {
+            {languageOptions.map(({ Icon, label, id }, index) => {
               const selected = id === i18n.language;
               if (selected)
                 return (
-                  <>
+                  <div
+                    className="flex gap-3 items-center"
+                    key={index}
+                  >
                     <Icon className="w-5 h-5" />
                     {label}
-                  </>
+                  </div>
                 );
             })}
           </CustomButton>

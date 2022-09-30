@@ -12,7 +12,7 @@ const HomeTemplate = ({ children, title }: HomeTemplateProps) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <div className="h-full">
+      <div className="h-full bg-primary overflow-y-auto">
         <HomeHeader />
         {children}
       </div>

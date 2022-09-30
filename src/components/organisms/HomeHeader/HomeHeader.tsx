@@ -25,11 +25,16 @@ const HomeHeader = () => {
     dispatch(setSidebar(true));
   };
   return (
-    <div className="fixed top-0 left-0 w-full z-10 bg-transparent py-3 lg:py-7 text-white flex items-center">
+    <div className="fixed top-0 left-0 w-full z-10 py-3 lg:py-7 text-white flex items-center bg-primary z-10 shadow-md">
       <div className="flex justify-between items-center w-10/12 max-w-md m-auto lg:max-w-8xl">
-        <h1 className="font-extrabold lg:hidden">{t("home.header.title")}</h1>
+        <h1 className="font-extrabold text-lg lg:hidden">
+          {t("home.header.title")}
+        </h1>
         <nav className="hidden lg:block">
           <ul className="flex gap-12 text-sm cursor-pointer list-none">
+            <li className="transition-all hover:text-accent">
+              {t("home.header.options.home")}
+            </li>
             <li className="transition-all hover:text-accent">
               {t("home.header.options.tutorials")}
             </li>
@@ -45,19 +50,21 @@ const HomeHeader = () => {
         <div className="hidden lg:flex lg:justify-between lg:gap-20">
           <CustomButton
             variant="text"
-            className="text-white flex gap-3"
             onClick={(e: any) => {
               setButtonElement(e.currentTarget);
             }}
           >
-            {languageOptions.map(({ Icon, label, id }) => {
+            {languageOptions.map(({ Icon, label, id }, index) => {
               const selected = id === i18n.language;
               if (selected)
                 return (
-                  <>
+                  <div
+                    className="text-white flex gap-3 items-center"
+                    key={index}
+                  >
                     <Icon className="w-5 h-5" />
                     {label}
-                  </>
+                  </div>
                 );
             })}
           </CustomButton>
