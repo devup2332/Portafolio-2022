@@ -84,10 +84,7 @@ const HomeSidebar = () => {
               const selected = id === i18n.language;
               if (selected)
                 return (
-                  <div
-                    className="flex gap-3 items-center"
-                    key={index}
-                  >
+                  <div className="flex gap-3 items-center" key={index}>
                     <Icon className="w-5 h-5" />
                     {label}
                   </div>
@@ -104,8 +101,7 @@ const HomeSidebar = () => {
                 <MenuItem
                   key={index}
                   onClick={() => {
-                    changeLanguage(id);
-                    setButtonElement(null);
+                    handleCloseMenuLanguage(id);
                   }}
                 >
                   <ListItemIcon>
