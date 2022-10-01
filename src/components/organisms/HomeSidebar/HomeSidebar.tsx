@@ -36,7 +36,7 @@ const HomeSidebar = () => {
   };
   return (
     <div
-      className="fixed top-0 left-0 w-full bg-black-opacity h-full z-10 shadow-md transition-all"
+      className="fixed top-0 left-0 w-full bg-black-opacity h-full z-20 shadow-md transition-all"
       style={{
         opacity: open ? "1" : "0",
         transform: open ? "translatex(0)" : "translateX(-100%)",

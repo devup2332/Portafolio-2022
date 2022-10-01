@@ -28,7 +28,7 @@ const HomeHeader = () => {
   return (
     <AppBar
       position="fixed"
-      className="py-3 lg:py-7 text-white bg-primary"
+      className="z-10 py-3 lg:py-7 text-white bg-primary opacity-0 animation-fade"
       elevation={1}
     >
       <div className="flex justify-between items-center w-10/12 max-w-md m-auto lg:max-w-8xl">
