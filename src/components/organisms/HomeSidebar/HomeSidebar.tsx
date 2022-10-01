@@ -9,24 +9,25 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import { useTranslation } from "react-i18next";
 import { MouseEvent, useRef, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../../store";
-import { setSidebar } from "../../../store/actions/SidebarActions/SidebarActions";
+import { useAppDispatch, useAppSelector } from "../../../store/store";
 import CustomButton from "../../atoms/CustomButton/CustomButton";
 import { changeLanguage } from "i18next";
 import { languageOptions } from "../../../lib/utils/LanguageOptions";
 import { headerLinks } from "../../../lib/utils/HeaderLinks";
+import { setSidebarAction } from "../../../store/actions/AppComponentsActions/setSidebarAction";
+import Link from "next/link";
 
 const HomeSidebar = () => {
   const { t, i18n } = useTranslation("index");
 
-  const { open } = useAppSelector((state) => state.sidebar);
+  const { openSidebar } = useAppSelector((state) => state.appComponents);
   const [buttonElement, setButtonElement] = useState<HTMLElement | null>(null);
   const openMenuLanguage = Boolean(buttonElement);
   const dispatch = useAppDispatch();
   const navRef = useRef<HTMLDivElement>(null);
   const closeSidebar = (e: MouseEvent<HTMLDivElement | MouseEvent>) => {
     if (!navRef.current?.contains(e.target as Node)) {
-      dispatch(setSidebar(false));
+      dispatch(setSidebarAction(false));
     }
   };
 
@@ -38,8 +39,8 @@ const HomeSidebar = () => {
     <div
       className="fixed top-0 left-0 w-full bg-black-opacity h-full z-20 shadow-md transition-all"
       style={{
-        opacity: open ? "1" : "0",
-        transform: open ? "translatex(0)" : "translateX(-100%)",
+        opacity: openSidebar ? "1" : "0",
+        transform: openSidebar ? "translatex(0)" : "translateX(-100%)",
       }}
       onClick={closeSidebar}
     >
@@ -52,23 +53,39 @@ const HomeSidebar = () => {
             <h1 className="font-extrabold">{t("home.sidebar.title")}</h1>
             <IconButton
               aria-label="Close"
-              onClick={() => dispatch(setSidebar(false))}
+              onClick={() => dispatch(setSidebarAction(false))}
             >
               <CloseIcon />
             </IconButton>
           </div>
           <ul className="list-none">
-            <li className="py-2 cursor-pointer hover:text-accent transition-all">
-              {t("home.sidebar.options.home")}
+            <li className="">
+              <Link href="/">
+                <a className="no-underline text-black py-2 cursor-pointer hover:text-accent transition-all block">
+                  {t("home.sidebar.options.home")}
+                </a>
+              </Link>
             </li>
             <li className="py-2 cursor-pointer hover:text-accent transition-all">
-              {t("home.sidebar.options.tutorials")}
+              <Link href="/tutorials">
+                <a className="no-underline text-black py-2 cursor-pointer hover:text-accent transition-all block">
+                  {t("home.sidebar.options.tutorials")}
+                </a>
+              </Link>
             </li>
             <li className="py-2 cursor-pointer hover:text-accent transition-all">
-              {t("home.sidebar.options.projects")}
+              <Link href="/projects">
+                <a className="no-underline text-black py-2 cursor-pointer hover:text-accent transition-all block">
+                  {t("home.sidebar.options.projects")}
+                </a>
+              </Link>
             </li>
             <li className="py-2 cursor-pointer hover:text-accent transition-all">
-              {t("home.sidebar.options.contact")}
+              <Link href="/contact">
+                <a className="no-underline text-black py-2 cursor-pointer hover:text-accent transition-all block">
+                  {t("home.sidebar.options.contact")}
+                </a>
+              </Link>
             </li>
           </ul>
         </nav>

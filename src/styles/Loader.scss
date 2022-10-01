@@ -1,7 +1,11 @@
 .container-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
   width: 100vw;
   height: 100vh;
-  background-color: #0F121D;
+  background-color: #0f121d;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -279,4 +283,3 @@ small {
     transform: translateZ(400px);
   }
 }
-

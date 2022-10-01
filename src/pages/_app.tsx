@@ -7,7 +7,7 @@ import theme from "../theme";
 import enLang from "../translates/en/index.json";
 import esLang from "../translates/es/index.json";
 import { Provider as ReduxProvider } from "react-redux";
-import { store } from "../store";
+import { store } from "../store/store";
 
 i18next.init({
   lng: "en",

@@ -1,7 +1,9 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Loader from "../../components/atoms/Loader/Loader";
 import { HomeHeader, HomeSidebar } from "../../components/organisms";
+import { setLoadingAction } from "../../store/actions/AppComponentsActions/setLoadingAction";
+import { useAppDispatch, useAppSelector } from "../../store/store";
 
 interface HomeTemplateProps {
   children: JSX.Element;
@@ -9,23 +11,32 @@ interface HomeTemplateProps {
 }
 
 const HomeTemplate = ({ children, title }: HomeTemplateProps) => {
-  const [loading, setLoading] = useState(true);
+  const dispatch = useAppDispatch();
+  const { loading } = useAppSelector((state) => state.appComponents);
+
   useEffect(() => {
+    dispatch(setLoadingAction(true));
     setTimeout(() => {
-      setLoading(false);
-    }, 6000);
+      dispatch(setLoadingAction(false));
+    }, 3000);
   }, []);
-  if (loading) return <Loader />;
+
   return (
     <div className="h-full font-Commissioner">
       <Head>
         <title>{title}</title>
       </Head>
-      <div className="h-full bg-primary overflow-y-auto">
-        <HomeHeader />
-        {children}
-      </div>
-      <HomeSidebar />
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <div className="h-full bg-primary overflow-y-auto">
+            <HomeHeader />
+            {children}
+          </div>
+          <HomeSidebar />
+        </>
+      )}
     </div>
   );
 };

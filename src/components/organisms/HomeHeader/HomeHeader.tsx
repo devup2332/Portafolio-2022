@@ -9,13 +9,14 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useTranslation } from "react-i18next";
-import { setSidebar } from "../../../store/actions/SidebarActions/SidebarActions";
-import { useAppDispatch } from "../../../store";
+import { useAppDispatch } from "../../../store/store";
 import CustomButton from "../../atoms/CustomButton/CustomButton";
 import { useState } from "react";
 import { changeLanguage } from "i18next";
 import { headerLinks } from "../../../lib/utils/HeaderLinks";
 import { languageOptions } from "../../../lib/utils/LanguageOptions";
+import { setSidebarAction } from "../../../store/actions/AppComponentsActions/setSidebarAction";
+import Link from "next/link";
 
 const HomeHeader = () => {
   const { t, i18n } = useTranslation("index");
@@ -23,7 +24,7 @@ const HomeHeader = () => {
   const openMenuLanguage = Boolean(buttonElement);
   const dispatch = useAppDispatch();
   const openSidebar = () => {
-    dispatch(setSidebar(true));
+    dispatch(setSidebarAction(true));
   };
   return (
     <AppBar
@@ -38,16 +39,32 @@ const HomeHeader = () => {
         <nav className="hidden lg:block">
           <ul className="flex gap-12 text-sm cursor-pointer list-none">
             <li className="transition-all hover:text-accent">
-              {t("home.header.options.home")}
+              <Link href="/">
+                <a className="no-underline text-white">
+                  {t("home.header.options.home")}
+                </a>
+              </Link>
             </li>
             <li className="transition-all hover:text-accent">
-              {t("home.header.options.tutorials")}
+              <Link href="/turorials">
+                <a className="no-underline text-white">
+                  {t("home.header.options.tutorials")}
+                </a>
+              </Link>
             </li>
             <li className="transition-all hover:text-accent">
-              {t("home.header.options.projects")}
+              <Link href="/projects">
+                <a className="no-underline text-white">
+                  {t("home.header.options.projects")}
+                </a>
+              </Link>
             </li>
             <li className="transition-all hover:text-accent">
-              {t("home.header.options.contact")}
+              <Link href="/contact">
+                <a className="no-underline text-white">
+                  {t("home.header.options.contact")}
+                </a>
+              </Link>
             </li>
           </ul>
         </nav>
