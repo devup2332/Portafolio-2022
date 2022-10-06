@@ -1,5 +1,4 @@
 import {
-  AppBar,
   IconButton,
   ListItemIcon,
   ListItemText,
@@ -27,11 +26,7 @@ const HomeHeader = () => {
     dispatch(setSidebarAction(true));
   };
   return (
-    <AppBar
-      position="fixed"
-      className="z-10 py-3 lg:py-7 text-white bg-primary opacity-0 animation-fade"
-      elevation={1}
-    >
+    <div className="fixed flex w-screen top-0 left-0 z-10 py-3 lg:py-7 text-white bg-primary opacity-0 animation-fade">
       <div className="flex justify-between items-center w-10/12 max-w-md m-auto lg:max-w-8xl">
         <h1 className="font-extrabold text-lg lg:hidden">
           {t("home.header.title")}
@@ -113,10 +108,10 @@ const HomeHeader = () => {
             })}
           </Menu>
           <div className="flex gap-1">
-            {headerLinks.map(({ Icon, label }, index) => {
+            {headerLinks.map(({ Icon, label, onClick }, index) => {
               return (
                 <Tooltip key={index} title={label}>
-                  <IconButton>
+                  <IconButton onClick={() => onClick(t)}>
                     <Icon className="text-white fill-current w-5 h-5" />
                   </IconButton>
                 </Tooltip>
@@ -133,7 +128,7 @@ const HomeHeader = () => {
           <MenuIcon className="text-white" />
         </IconButton>
       </div>
-    </AppBar>
+    </div>
   );
 };
 

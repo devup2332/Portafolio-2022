@@ -5,6 +5,9 @@
     "button": "See my Projects",
     "header": {
       "title": "Diego Rojas",
+      "whatsapp": {
+        "message": "Hi Diego, I would like to discuss an job offer that i have to you. want to schedule.\nI want to schedule a meeting with you to discuss this offer"
+      },
       "options": {
         "home": "Home",
         "tutorials": "Tutorials",
@@ -27,5 +30,34 @@
   },
   "projects": {
     "title": "Projects"
+  },
+  "contact": {
+    "title": "Contact",
+    "form": {
+      "fields": {
+        "email": "Email",
+        "fullName": "Full Name",
+        "phone": "Phone",
+        "message": "Message"
+      },
+
+      "errors": {
+        "email": {
+          "required": "Email is required",
+          "pattern": "This email is invalid"
+        },
+        "fullName": {
+          "required": "Please enter your name"
+        },
+        "phone": {
+          "required": "Please enter your phone",
+          "pattern": "Please enter a valid phone"
+        },
+        "message": {
+          "required": "Please enter your message"
+        }
+      },
+      "button": "Send Message"
+    }
   }
 }

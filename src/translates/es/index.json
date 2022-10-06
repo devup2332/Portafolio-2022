@@ -5,6 +5,9 @@
     "button": "Ver mis projectos",
     "header": {
       "title": "Diego Rojas",
+      "whatsapp": {
+        "message": "Hola diego, me gustaia discutir contigo una oferta laboral contigo.\nMe gustaria agendar contigo una reunion para discutir esta oferta."
+      },
       "options": {
         "home": "Inicio",
         "tutorials": "Tutoriales",
@@ -27,5 +30,17 @@
   },
   "projects": {
     "title": "Proyectos"
+  },
+  "contact": {
+    "title": "Contacto",
+    "form": {
+      "fields": {
+        "email": "Correo",
+        "fullName": "Nombre Completo",
+        "phone": "Telefono",
+        "message": "Mensage"
+      },
+      "button": "Enviar Mensaje"
+    }
   }
 }

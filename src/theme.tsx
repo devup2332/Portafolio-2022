@@ -7,12 +7,20 @@ const theme = createTheme({
     secondary: {
       main: "#820505",
     },
+    mode: "dark",
   },
   typography: {
     button: {
       textTransform: "none",
     },
     fontFamily: "Commissioner",
+  },
+  components: {
+    MuiInputBase: {
+      styleOverrides: {
+        input: {},
+      },
+    },
   },
 });
 
