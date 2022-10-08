@@ -42,5 +42,9 @@
       },
       "button": "Enviar Mensaje"
     }
+  },
+  "sendedMessage": {
+    "title": "Mensaje Enviado Satisfactoriamente",
+    "button": "Ir al inicio"
   }
 }

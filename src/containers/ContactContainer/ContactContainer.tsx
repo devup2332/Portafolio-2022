@@ -6,10 +6,12 @@ import {
   InputLabel,
   OutlinedInput,
 } from "@mui/material";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import ContactVector from "../../components/atoms/vectors/ContactVector";
+import { environments } from "../../environments";
 import { emailRex } from "../../lib/utils/EmailRex";
 import { phonePattern } from "../../lib/utils/PhonePattern";
 
@@ -53,6 +55,7 @@ const controls = [
 const ContactContainer = () => {
   const { t } = useTranslation("index");
   const [loading, setLoading] = useState(false);
+  const router = useRouter()
   const {
     control,
     handleSubmit,
@@ -60,14 +63,14 @@ const ContactContainer = () => {
   } = useForm();
 
   const onSubmit = handleSubmit(
-    (data) => {
-      console.log({ data });
-      const { message } = data;
+    async (data) => {
       setLoading(true);
-      const url = `https://web.whatsapp.com/send?text=${encodeURIComponent(
-        message
-      )}&phone=51976469908`;
-      window.open(url);
+      const res = await fetch(`${environments.API.HOST}/dev/sendEmail`, {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+      const response = await res.json();
+      router.push('/sendedEmail')
       setLoading(false);
     },
     (err) => {

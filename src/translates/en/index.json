@@ -59,5 +59,9 @@
       },
       "button": "Send Message"
     }
+  },
+  "sendedMessage": {
+    "title": "Successfull Messaging",
+    "button": "Go Home"
   }
 }
