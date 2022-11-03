@@ -41,7 +41,7 @@ const HomeHeader = () => {
               </Link>
             </li>
             <li className="transition-all hover:text-accent">
-              <Link href="/turorials">
+              <Link href="/tutorials">
                 <a className="no-underline text-white">
                   {t("home.header.options.tutorials")}
                 </a>

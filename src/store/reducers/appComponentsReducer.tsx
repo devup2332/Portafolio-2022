@@ -4,10 +4,12 @@ import { RootState, store } from "../store";
 interface AppComponentsState {
   openSidebar: boolean;
   loading: boolean;
+  openTutorialsSidebar: boolean;
 }
 
 const initialState: AppComponentsState = {
   openSidebar: false,
+  openTutorialsSidebar: false,
   loading: false,
 };
 
@@ -21,10 +23,17 @@ export const AppComponentsSlice = createSlice({
     setLoaderReducer: (state, action) => {
       return { ...state, loading: action.payload.loading };
     },
+    setTutorialsSidebarReducer: (state, action) => {
+      return { ...state, openTutorialsSidebar: action.payload.open };
+    },
   },
 });
 
-export const { setSidebarReducer, setLoaderReducer } = AppComponentsSlice.actions;
+export const {
+  setSidebarReducer,
+  setLoaderReducer,
+  setTutorialsSidebarReducer,
+} = AppComponentsSlice.actions;
 
 export const selectAppComponents = (state: RootState) => state.appComponents;
 
