@@ -7,6 +7,7 @@ const theme = createTheme({
     secondary: {
       main: "#820505",
     },
+    mode: "dark",
   },
   typography: {
     button: {
