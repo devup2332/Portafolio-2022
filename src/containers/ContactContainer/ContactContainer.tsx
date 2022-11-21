@@ -5,6 +5,8 @@ import {
   FormHelperText,
   InputLabel,
   OutlinedInput,
+  styled,
+  TextField,
 } from "@mui/material";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -52,10 +54,36 @@ const controls = [
   },
 ];
 
+const CustomInputCss = styled(TextField)({
+  "& label.Mui-focused": {
+    color: "red",
+  },
+  "& div input": {
+    color: "white",
+  },
+  "& label": {
+    color: "white",
+  },
+  "& div textarea": {
+    color: "white",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "white",
+    },
+    "&:hover fieldset": {
+      borderColor: "white",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "red",
+    },
+  },
+});
+
 const ContactContainer = () => {
   const { t } = useTranslation("index");
   const [loading, setLoading] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
   const {
     control,
     handleSubmit,
@@ -70,7 +98,7 @@ const ContactContainer = () => {
         body: JSON.stringify(data),
       });
       const response = await res.json();
-      router.push('/sendedEmail')
+      router.push("/sendedEmail");
       setLoading(false);
     },
     (err) => {
@@ -104,15 +132,12 @@ const ContactContainer = () => {
                         {...field}
                         className={className}
                       >
-                        <InputLabel color="secondary">
-                          {t(`contact.form.fields.${name}`)}
-                        </InputLabel>
-                        <OutlinedInput
-                          multiline={true}
+                        <CustomInputCss
+                          multiline
+                          className={className}
                           rows={name === "message" ? 6 : 1}
                           type={type}
                           label={t(`contact.form.fields.${name}`)}
-                          color="secondary"
                         />
                         <FormHelperText error={true}>
                           {errors[name] &&
