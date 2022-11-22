@@ -8,6 +8,9 @@ const nextConfig = {
   publicRuntimeConfig: {
     API_HOST: process.env.API_HOST,
   },
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
 };
 
 module.exports = nextConfig;

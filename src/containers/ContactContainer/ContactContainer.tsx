@@ -128,7 +128,6 @@ const ContactContainer = () => {
                   render={({ field }) => {
                     return (
                       <FormControl
-                        variant="outlined"
                         {...field}
                         className={className}
                       >
