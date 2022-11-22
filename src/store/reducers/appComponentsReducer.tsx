@@ -10,7 +10,7 @@ interface AppComponentsState {
 const initialState: AppComponentsState = {
   openSidebar: false,
   openTutorialsSidebar: false,
-  loading: false,
+  loading: true,
 };
 
 export const AppComponentsSlice = createSlice({

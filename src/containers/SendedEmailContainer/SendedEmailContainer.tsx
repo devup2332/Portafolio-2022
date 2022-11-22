@@ -9,14 +9,14 @@ const SendedEmailContainer = () => {
     <div className="flex justify-center text-white items-center h-screen bg-primary">
       <div className="w-8/12 grid max-w-md border-2 border-red-400 gap-6">
         <div className="grid gap-6">
-          <SendedEmailVector className="w-full h-full" />
           <h1 className="text-center text-2xl">{t("sendedMessage.title")} </h1>
+          <Link href="/">
+            <Button color="secondary" variant="contained" className="w-full">
+              {t("sendedMessage.button")}
+            </Button>
+          </Link>
         </div>
-        <Link href="/">
-          <Button color="secondary" variant="contained" className="w-full">
-            {t("sendedMessage.button")}
-          </Button>
-        </Link>
+        <SendedEmailVector className="w-full h-full" />
       </div>
     </div>
   );

@@ -15,7 +15,6 @@ const HomeTemplate = ({ children, title }: HomeTemplateProps) => {
   const { loading } = useAppSelector((state) => state.appComponents);
 
   useEffect(() => {
-    dispatch(setLoadingAction(true));
     setTimeout(() => {
       dispatch(setLoadingAction(false));
     }, 3000);
