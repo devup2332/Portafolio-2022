@@ -1,9 +1,9 @@
 import {
-  AppComponentsDispatch,
-  setLoaderReducer,
+	AppComponentsDispatch,
+	setLoaderReducer,
 } from "../../reducers/appComponentsReducer";
 
 export const setLoadingAction =
-  (loading: boolean) => (dispatch: AppComponentsDispatch) => {
-    dispatch(setLoaderReducer({ loading }));
-  };
+	(loading: boolean) => (dispatch: AppComponentsDispatch) => {
+		dispatch(setLoaderReducer({ loading }));
+	};

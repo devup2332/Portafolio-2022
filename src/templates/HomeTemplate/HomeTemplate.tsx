@@ -11,33 +11,33 @@ interface HomeTemplateProps {
 }
 
 const HomeTemplate = ({ children, title }: HomeTemplateProps) => {
-  const dispatch = useAppDispatch();
-  const { loading } = useAppSelector((state) => state.appComponents);
+	const dispatch = useAppDispatch();
+	const { loading } = useAppSelector((state) => state.appComponents);
 
-  useEffect(() => {
-    setTimeout(() => {
-      dispatch(setLoadingAction(false));
-    }, 3000);
-  }, []);
+	useEffect(() => {
+		setTimeout(() => {
+			dispatch(setLoadingAction(false));
+		}, 3000);
+	}, []);
 
-  return (
-    <div className="h-full font-Commissioner">
-      <Head>
-        <title>{title}</title>
-      </Head>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <div className="h-full bg-primary overflow-y-auto">
-            <HomeHeader />
-            {children}
-          </div>
-          <HomeSidebar />
-        </>
-      )}
-    </div>
-  );
+	return (
+		<div className="h-full font-Commissioner">
+			<Head>
+				<title>{title}</title>
+			</Head>
+			{loading ? (
+				<Loader />
+			) : (
+				<>
+					<div className="h-full bg-primary overflow-y-auto">
+						<HomeHeader />
+						{children}
+					</div>
+					<HomeSidebar />
+				</>
+			)}
+		</div>
+	);
 };
 
 export default HomeTemplate;

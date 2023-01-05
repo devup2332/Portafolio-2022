@@ -3,9 +3,9 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import AppComponentsReducer from "./reducers/appComponentsReducer";
 
 export const store = configureStore({
-  reducer: {
-    appComponents: AppComponentsReducer,
-  },
+	reducer: {
+		appComponents: AppComponentsReducer,
+	},
 });
 
 export type RootState = ReturnType<typeof store.getState>;

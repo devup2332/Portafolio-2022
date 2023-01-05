@@ -8,31 +8,31 @@ interface AppComponentsState {
 }
 
 const initialState: AppComponentsState = {
-  openSidebar: false,
-  openTutorialsSidebar: false,
-  loading: true,
+	openSidebar: false,
+	openTutorialsSidebar: false,
+	loading: true,
 };
 
 export const AppComponentsSlice = createSlice({
-  name: "appComponent",
-  initialState,
-  reducers: {
-    setSidebarReducer: (state, action) => {
-      return { ...state, openSidebar: action.payload.open };
-    },
-    setLoaderReducer: (state, action) => {
-      return { ...state, loading: action.payload.loading };
-    },
-    setTutorialsSidebarReducer: (state, action) => {
-      return { ...state, openTutorialsSidebar: action.payload.open };
-    },
-  },
+	name: "appComponent",
+	initialState,
+	reducers: {
+		setSidebarReducer: (state, action) => {
+			return { ...state, openSidebar: action.payload.open };
+		},
+		setLoaderReducer: (state, action) => {
+			return { ...state, loading: action.payload.loading };
+		},
+		setTutorialsSidebarReducer: (state, action) => {
+			return { ...state, openTutorialsSidebar: action.payload.open };
+		},
+	},
 });
 
 export const {
-  setSidebarReducer,
-  setLoaderReducer,
-  setTutorialsSidebarReducer,
+	setSidebarReducer,
+	setLoaderReducer,
+	setTutorialsSidebarReducer,
 } = AppComponentsSlice.actions;
 
 export const selectAppComponents = (state: RootState) => state.appComponents;

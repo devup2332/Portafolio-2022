@@ -8,18 +8,18 @@ interface TutorialsTemplateProps {
 }
 
 const TutorialsTemplate = ({ children, title }: TutorialsTemplateProps) => {
-  return (
-    <div className="bg-primary">
-      <Head>
-        <title>{title}</title>
-      </Head>
-      <div>
-        <TutorialsHeader />
-        {children}
-      </div>
-      <TutorialsSidebar />
-    </div>
-  );
+	return (
+		<div className="bg-primary">
+			<Head>
+				<title>{title}</title>
+			</Head>
+			<div>
+				<TutorialsHeader />
+				{children}
+			</div>
+			<TutorialsSidebar />
+		</div>
+	);
 };
 
 export default TutorialsTemplate;

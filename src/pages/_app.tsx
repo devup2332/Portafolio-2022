@@ -10,32 +10,32 @@ import { Provider as ReduxProvider } from "react-redux";
 import { store } from "../store/store";
 
 i18next.init({
-  lng: "en",
-  resources: {
-    en: {
-      index: enLang,
-    },
-    es: {
-      index: esLang,
-    },
-  },
-  interpolation: {
-    escapeValue: false,
-  },
+	lng: "en",
+	resources: {
+		en: {
+			index: enLang,
+		},
+		es: {
+			index: esLang,
+		},
+	},
+	interpolation: {
+		escapeValue: false,
+	},
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <StyledEngineProvider injectFirst>
-      <ReduxProvider store={store}>
-        <ThemeProvider theme={theme}>
-          <I18nextProvider i18n={i18next}>
-            <Component {...pageProps} />
-          </I18nextProvider>
-        </ThemeProvider>
-      </ReduxProvider>
-    </StyledEngineProvider>
-  );
+	return (
+		<StyledEngineProvider injectFirst>
+			<ReduxProvider store={store}>
+				<ThemeProvider theme={theme}>
+					<I18nextProvider i18n={i18next}>
+						<Component {...pageProps} />
+					</I18nextProvider>
+				</ThemeProvider>
+			</ReduxProvider>
+		</StyledEngineProvider>
+	);
 }
 
 export default MyApp;

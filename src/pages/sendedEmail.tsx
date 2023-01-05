@@ -3,11 +3,11 @@ import SendedEmailContainer from "../containers/SendedEmailContainer/SendedEmail
 import HomeTemplate from "../templates/HomeTemplate/HomeTemplate";
 
 const SendedEmail = () => {
-  return (
-    <HomeTemplate title="Sended Email | Diego Rojas">
-      <SendedEmailContainer />
-    </HomeTemplate>
-  );
+	return (
+		<HomeTemplate title="Sended Email | Diego Rojas">
+			<SendedEmailContainer />
+		</HomeTemplate>
+	);
 };
 
 export default SendedEmail;
