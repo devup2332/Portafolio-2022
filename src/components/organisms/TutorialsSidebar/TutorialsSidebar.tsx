@@ -1,5 +1,4 @@
 import { Drawer, Typography } from "@mui/material";
-import { useState } from "react";
 import { setTutorialsSidebarAction } from "../../../store/actions/AppComponentsActions/setTutorialsSidebarAction";
 import { useAppDispatch, useAppSelector } from "../../../store/store";
 

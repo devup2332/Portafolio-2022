@@ -1,5 +1,4 @@
 import { Tooltip } from "@mui/material";
-import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { IconFigma, IconGithub, IconWeb } from "../../components/atoms/icons";
 import { projects } from "../../projects";

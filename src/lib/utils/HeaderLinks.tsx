@@ -1,6 +1,5 @@
 import { TFunction } from "react-i18next";
 import {
-  IconEmail,
   IconGithub,
   IconLinkedin,
   IconWhatsapp,

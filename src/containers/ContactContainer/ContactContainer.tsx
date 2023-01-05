@@ -3,8 +3,6 @@ import {
   CircularProgress,
   FormControl,
   FormHelperText,
-  InputLabel,
-  OutlinedInput,
   styled,
   TextField,
 } from "@mui/material";
@@ -97,7 +95,7 @@ const ContactContainer = () => {
         method: "POST",
         body: JSON.stringify(data),
       });
-      const response = await res.json();
+      await res.json();
       router.push("/sendedEmail");
       setLoading(false);
     },
@@ -127,10 +125,7 @@ const ContactContainer = () => {
                   control={control}
                   render={({ field }) => {
                     return (
-                      <FormControl
-                        {...field}
-                        className={className}
-                      >
+                      <FormControl {...field} className={className}>
                         <CustomInputCss
                           multiline
                           className={className}
