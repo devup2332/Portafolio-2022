@@ -1,93 +1,104 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 body {
-  height: 100%;
-  overflow-x: hidden;
+	height: 100%;
+	overflow-x: hidden;
 }
 
 img {
-  max-width: 100%;
-  display: block;
+	max-width: 100%;
+	display: block;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	/* display: none; <- Crashes Chrome on hover */
+	-webkit-appearance: none;
+	margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
 }
 
 .animation-entrance-left {
-  animation: animation-entrance-left 0.6s forwards;
+	animation: animation-entrance-left 0.6s forwards;
 }
 .animation-entrance-right {
-  animation: animation-entrance-right 0.6s forwards;
-  animation-delay: 1s;
+	animation: animation-entrance-right 0.6s forwards;
+	animation-delay: 1s;
 }
 .animation-entrance-bottom {
-  animation: animation-entrance-bottom 0.6s forwards;
-  animation-delay: 2s;
+	animation: animation-entrance-bottom 0.6s forwards;
+	animation-delay: 2s;
 }
 .animation-fade {
-  animation: animation-fade 0.6s forwards;
+	animation: animation-fade 0.6s forwards;
 }
 
 @keyframes animation-fade {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 @keyframes animation-entrance-bottom {
-  0% {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
+	0% {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
 }
 @keyframes animation-entrance-left {
-  0% {
-    opacity: 0;
-    transform: translateX(-300px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
+	0% {
+		opacity: 0;
+		transform: translateX(-300px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0px);
+	}
 }
 @keyframes animation-entrance-right {
-  0% {
-    opacity: 0;
-    transform: translateX(300px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
+	0% {
+		opacity: 0;
+		transform: translateX(300px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0px);
+	}
 }
 
 @layer base {
-  @font-face {
-    font-family: "Commissioner";
-    font-weight: 200;
-    src: url("../fonts/Commissioner-ExtraLight.ttf");
-  }
-  @font-face {
-    font-family: "Commissioner";
-    font-weight: 400;
-    src: url("../fonts/Commissioner-Regular.ttf");
-  }
-  @font-face {
-    font-family: "Commissioner";
-    font-weight: 700;
-    src: url("../fonts/Commissioner-Bold.ttf");
-  }
-  @font-face {
-    font-family: "Commissioner";
-    font-weight: 800;
-    src: url("../fonts/Commissioner-ExtraBold.ttf");
-  }
+	@font-face {
+		font-family: "Commissioner";
+		font-weight: 200;
+		src: url("../fonts/Commissioner-ExtraLight.ttf");
+	}
+	@font-face {
+		font-family: "Commissioner";
+		font-weight: 400;
+		src: url("../fonts/Commissioner-Regular.ttf");
+	}
+	@font-face {
+		font-family: "Commissioner";
+		font-weight: 700;
+		src: url("../fonts/Commissioner-Bold.ttf");
+	}
+	@font-face {
+		font-family: "Commissioner";
+		font-weight: 800;
+		src: url("../fonts/Commissioner-ExtraBold.ttf");
+	}
 }
 
 @tailwind base;

@@ -1,67 +1,71 @@
 {
-  "home": {
-    "title": "Hello, I am Diego",
-    "description": "Im a developer with over 3 years of experience in frontend and backend web development. All that ive learned was thanks to my great pasion for create digital products",
-    "button": "See my Projects",
-    "header": {
-      "title": "Diego Rojas",
-      "whatsapp": {
-        "message": "Hi Diego, I would like to discuss an job offer that i have to you. want to schedule.\nI want to schedule a meeting with you to discuss this offer"
-      },
-      "options": {
-        "home": "Home",
-        "tutorials": "Tutorials",
-        "projects": "Projects",
-        "contact": "Contact"
-      }
-    },
-    "sidebar": {
-      "title": "Diego Rojas",
-      "translate": {
-        "button": "Change Language"
-      },
-      "options": {
-        "home": "Home",
-        "tutorials": "Tutorials",
-        "projects": "Projects",
-        "contact": "Contact"
-      }
-    }
-  },
-  "projects": {
-    "title": "Projects"
-  },
-  "contact": {
-    "title": "Contact",
-    "form": {
-      "fields": {
-        "email": "Email",
-        "fullName": "Full Name",
-        "phone": "Phone",
-        "message": "Message"
-      },
+	"home": {
+		"title": "Hello, I am Diego",
+		"description": "Im a developer with over 3 years of experience in frontend and backend web development. All that ive learned was thanks to my great pasion for create digital products",
+		"button": "See my Projects",
+		"header": {
+			"title": "Diego Rojas",
+			"whatsapp": {
+				"message": "Hi Diego, I would like to discuss an job offer that i have to you. want to schedule.\nI want to schedule a meeting with you to discuss this offer"
+			},
+			"options": {
+				"home": "Home",
+				"tutorials": "Tutorials",
+				"projects": "Projects",
+				"contact": "Contact"
+			}
+		},
+		"sidebar": {
+			"title": "Diego Rojas",
+			"translate": {
+				"button": "Change Language"
+			},
+			"options": {
+				"home": "Home",
+				"tutorials": "Tutorials",
+				"projects": "Projects",
+				"contact": "Contact"
+			}
+		}
+	},
+	"projects": {
+		"title": "Projects"
+	},
+	"contact": {
+		"title": "Contact",
+		"form": {
+			"fields": {
+				"email": "Email",
+				"fullName": "Full Name",
+				"phone": "Phone",
+				"message": "Message",
+				"code": "Code"
+			},
 
-      "errors": {
-        "email": {
-          "required": "Email is required",
-          "pattern": "This email is invalid"
-        },
-        "fullName": {
-          "required": "Please enter your name"
-        },
-        "phone": {
-          "required": "Please enter your phone",
-          "pattern": "Please enter a valid phone"
-        },
-        "message": {
-          "required": "Please enter your message"
-        }
-      },
-      "button": "Send Message"
-    }
-  },
-  "sendedMessage": {
-    "title": "Successfull Messaging",
-    "button": "Go Home"
-  }
+			"errors": {
+				"email": {
+					"required": "Email is required",
+					"pattern": "This email is invalid"
+				},
+				"fullName": {
+					"required": "Please enter your name"
+				},
+				"phone": {
+					"required": "Please enter your phone",
+					"pattern": "Please enter a valid phone"
+				},
+				"code": {
+					"required": "Please select a code"
+				},
+				"message": {
+					"required": "Please enter your message"
+				}
+			},
+			"button": "Send Message"
+		}
+	},
+	"sendedMessage": {
+		"title": "Successfull Messaging",
+		"button": "Go Home"
+	}
 }

@@ -3,6 +3,7 @@ import {
 	CircularProgress,
 	FormControl,
 	FormHelperText,
+	MenuItem,
 	styled,
 	TextField,
 } from "@mui/material";
@@ -12,6 +13,7 @@ import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import ContactVector from "../../components/atoms/vectors/ContactVector";
 import { environments } from "../../environments";
+import countries from "../../lib/utils/Countries";
 import { emailRex } from "../../lib/utils/EmailRex";
 import { phonePattern } from "../../lib/utils/PhonePattern";
 
@@ -23,7 +25,7 @@ const controls = [
 			required: true,
 			pattern: emailRex,
 		},
-		className: "2xl:col-start-1 2xl:col-end-2",
+		className: "2xl:col-start-1 2xl:col-end-5",
 	},
 	{
 		name: "fullName",
@@ -31,10 +33,10 @@ const controls = [
 		validations: {
 			required: true,
 		},
-		className: "2xl:col-start-2 2xl:col-end-3",
+		className: "2xl:col-start-5 2xl:col-end-9",
 	},
 	{
-		name: "phone",
+		name: "code",
 		type: "text",
 		validations: {
 			pattern: phonePattern,
@@ -43,12 +45,21 @@ const controls = [
 		className: "2xl:col-start-1 2xl:col-end-3",
 	},
 	{
+		name: "phone",
+		type: "number",
+		validations: {
+			pattern: phonePattern,
+			required: true,
+		},
+		className: "2xl:col-start-3 2xl:col-end-9",
+	},
+	{
 		name: "message",
 		type: "text",
 		validations: {
 			required: true,
 		},
-		className: "2xl:col-start-1 2xl:col-end-3",
+		className: "2xl:col-start-1 2xl:col-end-9",
 	},
 ];
 
@@ -63,6 +74,12 @@ const CustomInputCss = styled(TextField)({
 		color: "white",
 	},
 	"& div textarea": {
+		color: "white",
+	},
+	"& .MuiInputBase-root .MuiSelect-select": {
+		color: "white",
+	},
+	"& .MuiInputBase-root .MuiSvgIcon-root": {
 		color: "white",
 	},
 	"& .MuiOutlinedInput-root": {
@@ -85,11 +102,13 @@ const ContactContainer = () => {
 	const {
 		control,
 		handleSubmit,
+		setValue,
 		formState: { errors },
 	} = useForm();
 
 	const onSubmit = handleSubmit(
 		async (data) => {
+			data.phone = data.code + data.phone;
 			setLoading(true);
 			const res = await fetch(`${environments.API.HOST}/dev/sendEmail`, {
 				method: "POST",
@@ -100,11 +119,13 @@ const ContactContainer = () => {
 			setLoading(false);
 		},
 		(err) => {
+			console.log({ err });
 			setLoading(true);
 			console.log({ err });
 			setLoading(false);
 		}
 	);
+
 	return (
 		<div className="text-white max-w-md py-20 h-screen w-10/12 m-auto lg:py-32 lg:max-w-8xl 3xl:py-48">
 			<div className="grid gap-10 lg:gap-20">
@@ -113,9 +134,8 @@ const ContactContainer = () => {
 				</h1>
 				<div className="lg:flex lg:gap-20 2xl:gap-32">
 					<form
-						className="grid gap-4 lg:w-6/12 lg:gap-10 2xl:grid-cols-2"
-						onSubmit={onSubmit}
-					>
+						className="grid gap-4 lg:w-6/12 lg:gap-10 2xl:grid-cols-8"
+						onSubmit={onSubmit}>
 						{controls.map(({ type, name, validations, className }, index) => {
 							return (
 								<Controller
@@ -127,12 +147,24 @@ const ContactContainer = () => {
 										return (
 											<FormControl {...field} className={className}>
 												<CustomInputCss
-													multiline
+													multiline={name === "message"}
+													select={name === "code"}
 													className={className}
 													rows={name === "message" ? 6 : 1}
 													type={type}
-													label={t(`contact.form.fields.${name}`)}
-												/>
+													onChange={(e) => {
+														if (name === "code") setValue("code", e.target.value);
+													}}
+													label={t(`contact.form.fields.${name}`)}>
+													{name === "code" &&
+														countries.map(({ label, value }, index) => {
+															return (
+																<MenuItem key={index} value={value}>
+																	{label}
+																</MenuItem>
+															);
+														})}
+												</CustomInputCss>
 												<FormHelperText error={true}>
 													{errors[name] &&
 														errors[name]?.type === "required" &&
@@ -150,9 +182,8 @@ const ContactContainer = () => {
 						<Button
 							variant="contained"
 							color="secondary"
-							className="py-2 2xl:col-start-1 2xl:col-end-3 flex gap-3"
-							type="submit"
-						>
+							className="py-2 2xl:col-start-1 2xl:col-end-9 flex gap-3"
+							type="submit">
 							{loading && <CircularProgress color="inherit" size={30} />}
 							{t("contact.form.button")}
 						</Button>
