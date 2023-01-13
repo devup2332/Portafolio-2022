@@ -38,13 +38,15 @@
         "email": "Correo",
         "fullName": "Nombre Completo",
         "phone": "Telefono",
-        "message": "Mensage"
+        "message": "Mensage",
+        "code": "Codigo"
       },
       "button": "Enviar Mensaje"
     }
   },
   "sendedMessage": {
     "title": "Mensaje Enviado Satisfactoriamente",
+    "description": "He recibido tu mensaje y te contactare lo mas pronto posible",
     "button": "Ir al inicio"
   }
 }

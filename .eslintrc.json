@@ -23,7 +23,6 @@
 		"semi": ["error"],
 		"@typescript-eslint/no-explicit-any": "off",
 		"indent": ["error", "tab"],
-		"no-tabs": "off",
 		"multiline-ternary": "off"
 	}
 }

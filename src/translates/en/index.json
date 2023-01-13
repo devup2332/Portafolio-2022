@@ -66,6 +66,7 @@
 	},
 	"sendedMessage": {
 		"title": "Successfull Messaging",
+		"description": "Ive recieve your message and i will contact you as soon as possible",
 		"button": "Go Home"
 	}
 }
