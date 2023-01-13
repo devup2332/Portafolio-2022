@@ -23,6 +23,7 @@ export const headerLinks = [
 		label: "Linkedin",
 
 		onClick: () => {
+			console.log("Here");
 			window.open(linkedinLink);
 		},
 	},

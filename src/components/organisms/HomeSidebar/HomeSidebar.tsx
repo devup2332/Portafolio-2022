@@ -42,19 +42,16 @@ const HomeSidebar = () => {
 				opacity: openSidebar ? "1" : "0",
 				transform: openSidebar ? "translatex(0)" : "translateX(-100%)",
 			}}
-			onClick={closeSidebar}
-		>
+			onClick={closeSidebar}>
 			<div
 				className="w-9/12 p-7 bg-white shadow-md h-full max-w-xs flex flex-col justify-between"
-				ref={navRef}
-			>
+				ref={navRef}>
 				<nav className="grid gap-5 h-fit">
 					<div className="flex items-center justify-between">
 						<h1 className="font-extrabold">{t("home.sidebar.title")}</h1>
 						<IconButton
 							aria-label="Close"
-							onClick={() => dispatch(setSidebarAction(false))}
-						>
+							onClick={() => dispatch(setSidebarAction(false))}>
 							<CloseIcon />
 						</IconButton>
 					</div>
@@ -95,8 +92,7 @@ const HomeSidebar = () => {
 						className="flex gap-3 w-fit"
 						onClick={(e: any) => {
 							setButtonElement(e.currentTarget);
-						}}
-					>
+						}}>
 						{languageOptions.map(({ Icon, label, id }, index) => {
 							const selected = id === i18n.language;
 							if (selected)
@@ -111,16 +107,14 @@ const HomeSidebar = () => {
 					<Menu
 						open={openMenuLanguage}
 						anchorEl={buttonElement}
-						onClose={() => setButtonElement(null)}
-					>
+						onClose={() => setButtonElement(null)}>
 						{languageOptions.map(({ Icon, label, id }, index) => {
 							return (
 								<MenuItem
 									key={index}
 									onClick={() => {
 										handleCloseMenuLanguage(id);
-									}}
-								>
+									}}>
 									<ListItemIcon>
 										<Icon />
 									</ListItemIcon>
@@ -130,10 +124,10 @@ const HomeSidebar = () => {
 						})}
 					</Menu>
 					<div className="flex gap-1">
-						{headerLinks.map(({ Icon, label }, index) => {
+						{headerLinks.map(({ Icon, label, onClick }, index) => {
 							return (
 								<Tooltip key={index} title={label}>
-									<IconButton>
+									<IconButton onClick={() => onClick(t)}>
 										<Icon className="text-black fill-current w-5 h-5" />
 									</IconButton>
 								</Tooltip>
