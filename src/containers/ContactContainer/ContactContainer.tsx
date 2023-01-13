@@ -119,7 +119,6 @@ const ContactContainer = () => {
 			setLoading(false);
 		},
 		(err) => {
-			console.log({ err });
 			setLoading(true);
 			console.log({ err });
 			setLoading(false);
