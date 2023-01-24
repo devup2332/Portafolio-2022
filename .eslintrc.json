@@ -22,7 +22,14 @@
 		"no-unused-vars": ["error"],
 		"semi": ["error"],
 		"@typescript-eslint/no-explicit-any": "off",
-		"indent": ["error", "tab"],
-		"multiline-ternary": "off"
+		"indent": [
+			"error",
+			"tab",
+			{
+				"ignoredNodes": ["ConditionalExpression"]
+			}
+		],
+		"multiline-ternary": "off",
+		"no-nested-ternary": ["off"]
 	}
 }

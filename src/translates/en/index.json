@@ -68,5 +68,13 @@
 		"title": "Successfull Messaging",
 		"description": "Ive recieve your message and i will contact you as soon as possible",
 		"button": "Go Home"
+	},
+	"tutorials": {
+		"login": {
+			"form": {
+				"email": "Email",
+				"password": "Password"
+			}
+		}
 	}
 }
