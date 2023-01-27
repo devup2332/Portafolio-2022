@@ -142,7 +142,6 @@ const ContactContainer = () => {
 									name={name}
 									rules={validations}
 									control={control}
-
 									render={({ field }) => {
 										return (
 											<FormControl {...field} className={className}>

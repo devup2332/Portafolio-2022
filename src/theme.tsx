@@ -12,12 +12,19 @@ const theme = createTheme({
 		button: {
 			textTransform: "none",
 		},
-		fontFamily: "Commissioner",
+		fontFamily: ["Commissioner", "Montserrat"].join(","),
 	},
 	components: {
 		MuiInputBase: {
 			styleOverrides: {
 				input: {},
+			},
+		},
+		MuiButton: {
+			styleOverrides: {
+				text: {
+					fontFamily: "Montserrat",
+				},
 			},
 		},
 	},
