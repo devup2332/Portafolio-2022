@@ -1,52 +1,96 @@
 {
-  "home": {
-    "title": "Hola, Soy Diego",
-    "description": "Soy un desarrollador con más de 3 años de experiencia en desarrollo web frontend y backend. Todo lo que aprendí fue gracias a mi gran pasión por crear productos digitales.",
-    "button": "Ver mis projectos",
-    "header": {
-      "title": "Diego Rojas",
-      "whatsapp": {
-        "message": "Hola diego, me gustaia discutir contigo una oferta laboral contigo.\nMe gustaria agendar contigo una reunion para discutir esta oferta."
-      },
-      "options": {
-        "home": "Inicio",
-        "tutorials": "Tutoriales",
-        "projects": "Proyectos",
-        "contact": "Contacto"
-      }
-    },
-    "sidebar": {
-      "title": "Diego Rojas",
-      "translate": {
-        "button": "Cambiar Idioma"
-      },
-      "options": {
-        "home": "Inicio",
-        "tutorials": "Tutoriales",
-        "projects": "Proyectos",
-        "contact": "Contacto"
-      }
-    }
-  },
-  "projects": {
-    "title": "Proyectos"
-  },
-  "contact": {
-    "title": "Contacto",
-    "form": {
-      "fields": {
-        "email": "Correo",
-        "fullName": "Nombre Completo",
-        "phone": "Telefono",
-        "message": "Mensage",
-        "code": "Codigo"
-      },
-      "button": "Enviar Mensaje"
-    }
-  },
-  "sendedMessage": {
-    "title": "Mensaje Enviado Satisfactoriamente",
-    "description": "He recibido tu mensaje y te contactare lo mas pronto posible",
-    "button": "Ir al inicio"
-  }
+	"home": {
+		"title": "Hola, Soy Diego",
+		"description": "Soy un desarrollador con más de 3 años de experiencia en desarrollo web frontend y backend. Todo lo que aprendí fue gracias a mi gran pasión por crear productos digitales.",
+		"button": "Ver mis projectos",
+		"header": {
+			"title": "Diego Rojas",
+			"whatsapp": {
+				"message": "Hola diego, me gustaia discutir contigo una oferta laboral contigo.\nMe gustaria agendar contigo una reunion para discutir esta oferta."
+			},
+			"options": {
+				"home": "Inicio",
+				"codeUp": "CodeUp",
+				"projects": "Proyectos",
+				"contact": "Contacto"
+			}
+		},
+		"sidebar": {
+			"title": "Diego Rojas",
+			"translate": {
+				"button": "Cambiar Idioma"
+			},
+			"options": {
+				"home": "Inicio",
+				"tutorials": "Tutoriales",
+				"projects": "Proyectos",
+				"contact": "Contacto"
+			}
+		}
+	},
+	"projects": {
+		"title": "Proyectos"
+	},
+	"contact": {
+		"title": "Contacto",
+		"form": {
+			"fields": {
+				"email": "Correo",
+				"fullName": "Nombre Completo",
+				"phone": "Telefono",
+				"message": "Mensage",
+				"code": "Codigo"
+			},
+			"errors": {
+				"email": {
+					"required": "Ingrese un correo",
+					"pattern": "Correo Invalido"
+				},
+				"fullName": {
+					"required": "Ingrese su nombre"
+				},
+				"code": {
+					"required": "Seleccione un codigo de pais"
+				},
+				"phone": {
+					"required": "Ingrese su telefono"
+				},
+				"message": {
+					"required": "Ingrese su mensaje"
+				}
+			},
+			"button": "Enviar Mensaje"
+		}
+	},
+	"sendedMessage": {
+		"title": "Mensaje Enviado Satisfactoriamente",
+		"description": "He recibido tu mensaje y te contactare lo mas pronto posible",
+		"button": "Ir al inicio"
+	},
+	"codeUp": {
+		"login": {
+			"form": {
+				"title": "Bienvenido",
+				"fields": {
+					"email": "Correo",
+					"password": "Contraseña",
+					"button": "Ingresar"
+				},
+				"errors": {
+					"email": {
+						"required": "Ingrese un correo",
+						"pattern": "Correo Invalido"
+					},
+					"password": {
+						"required": "Ingrese una contraseña"
+					}
+				}
+			},
+			"forgotPassText": "Olvidaste tu contraseña ?",
+			"registerText": {
+				"text": "Aun no tienes una cuenta ?",
+				"link": " Registrate"
+			}
+		}
+	}
 }

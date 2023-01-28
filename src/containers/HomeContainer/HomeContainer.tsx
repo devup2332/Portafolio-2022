@@ -1,6 +1,6 @@
+import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
-import CustomButton from "../../components/atoms/CustomButton/CustomButton";
 import { HomeVector } from "../../components/atoms/vectors";
 
 const HomeContainer = () => {
@@ -16,7 +16,7 @@ const HomeContainer = () => {
 					<p className='text-sm text-center leading-6 lg:text-left opacity-0 lg:leading-7 2xl:text-lg 3xl:w-9/12 3xl:leading-8 animation-entrance-right'>
 						{t("home.description")}
 					</p>
-					<CustomButton
+					<Button
 						className='justify-self-center font-bold lg:justify-self-start 2xl:text-base lg:py-3 lg:px-12 opacity-0 animation-entrance-bottom'
 						variant='contained'
 						color='secondary'
@@ -24,7 +24,7 @@ const HomeContainer = () => {
 							router.push("projects");
 						}}>
 						{t("home.button")}
-					</CustomButton>
+					</Button>
 				</div>
 				<div
 					className='hidden lg:block w-full max-w-2xl animation-entrance-right opacity-0 '

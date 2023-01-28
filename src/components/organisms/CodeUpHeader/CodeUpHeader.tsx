@@ -9,10 +9,10 @@ const TutorialsHeader = () => {
 		dispatch(setTutorialsSidebarAction(true));
 	};
 	return (
-		<AppBar position="fixed" color="inherit">
-			<Toolbar className="flex justify-between">
-				<Typography variant="h5" className="font-bold">
-          Tutorials
+		<AppBar position='fixed' color="inherit" elevation={0}>
+			<Toolbar className='flex justify-between'>
+				<Typography variant='h5' className='font-bold'>
+					CodeUp
 				</Typography>
 				<IconButton onClick={openSidebar}>
 					<Menu />

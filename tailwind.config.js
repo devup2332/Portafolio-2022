@@ -7,6 +7,7 @@ module.exports = {
 				primary: "#0F121D",
 				accent: "#820505",
 				"black-opacity": "rgba(0,0,0,0.5)",
+				"black-opacity-loader": "rgba(0,0,0,0.1)",
 				secondPrimary: "#1CB6AB",
 			},
 			fontFamily: {

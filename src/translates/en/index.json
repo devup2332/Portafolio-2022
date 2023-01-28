@@ -10,7 +10,7 @@
 			},
 			"options": {
 				"home": "Home",
-				"tutorials": "Tutorials",
+				"codeUp": "CodeUp",
 				"projects": "Projects",
 				"contact": "Contact"
 			}
@@ -22,7 +22,7 @@
 			},
 			"options": {
 				"home": "Home",
-				"tutorials": "Tutorials",
+				"codeUp": "CodeUp",
 				"projects": "Projects",
 				"contact": "Contact"
 			}
@@ -69,9 +69,10 @@
 		"description": "Ive recieve your message and i will contact you as soon as possible",
 		"button": "Go Home"
 	},
-	"tutorials": {
+	"codeUp": {
 		"login": {
 			"form": {
+				"title": "Sign In",
 				"fields": {
 					"email": "Email",
 					"password": "Password",

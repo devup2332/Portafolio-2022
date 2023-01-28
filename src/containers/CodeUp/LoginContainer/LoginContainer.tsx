@@ -21,11 +21,11 @@ import {
 	useForm,
 } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import LoginImage from "../../assets/login.jpg";
-import { IconGithub, IconGoogle } from "../../components/atoms/icons";
-import { fetchLoginUser } from "../../lib/api/auth/login";
-import { emailRex } from "../../lib/utils/EmailRex";
-import { CredentialsLogin } from "../../models/login/credentials";
+import { IconGithub, IconGoogle } from "../../../components/atoms/icons";
+import { fetchLoginUser } from "../../../lib/api/auth/login";
+import { emailRex } from "../../../lib/utils/EmailRex";
+import { CredentialsLogin } from "../../../models/login/credentials";
+import LoginImage from "../../../assets/login.jpg";
 
 type CustomControl = {
 	name: string;
@@ -56,7 +56,7 @@ const controls: CustomControl[] = [
 	},
 ];
 
-const LoginPage = () => {
+const LoginContainer = () => {
 	const {
 		handleSubmit,
 		control,
@@ -78,7 +78,7 @@ const LoginPage = () => {
 		}
 		localStorage.setItem("CODE_UP_TOKEN", token);
 		setLoading(false);
-		router.replace("/tutorials/profile");
+		router.replace("/codeup/profile");
 	};
 	return (
 		<div>
@@ -94,7 +94,9 @@ const LoginPage = () => {
 				<form
 					className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10/12 grid gap-5 z-10 bg-white px-5 py-10 rounded-xl max-w-lg 2xl:max-w-md lg:px-10 lg:py-16'
 					onSubmit={handleSubmit(loginUser, (err) => console.log({ err }))}>
-					<Typography className='text-center text-3xl'>Sign In</Typography>
+					<Typography className='text-center text-3xl'>
+						{t("codeUp.login.form.title")}
+					</Typography>
 					{controls.map(({ name, validations }, index) => {
 						return (
 							<Controller
@@ -109,7 +111,7 @@ const LoginPage = () => {
 											{...field}
 											variant='outlined'>
 											<InputLabel>
-												{t(`tutorials.login.form.fields.${name}`)}
+												{t(`codeUp.login.form.fields.${name}`)}
 											</InputLabel>
 											<OutlinedInput
 												endAdornment={
@@ -122,7 +124,7 @@ const LoginPage = () => {
 														</InputAdornment>
 													)
 												}
-												label={t(`tutorials.login.form.fields.${name}`)}
+												label={t(`codeUp.login.form.fields.${name}`)}
 												type={
 													name === "email"
 														? "text"
@@ -134,7 +136,7 @@ const LoginPage = () => {
 											{errors[name] && (
 												<FormHelperText>
 													{t(
-														`tutorials.login.form.errors.${name}.${errors[name]?.type}`
+														`codeUp.login.form.errors.${name}.${errors[name]?.type}`
 													)}
 												</FormHelperText>
 											)}
@@ -149,25 +151,27 @@ const LoginPage = () => {
 							<Typography
 								className='font-semibold text-center lg:text-left'
 								fontFamily='Montserrat'>
-								{t("tutorials.login.forgotPassText")}
+								{t("codeUp.login.forgotPassText")}
 							</Typography>
 						</a>
 					</Link>
 					<Button
-						className='bg-secondPrimary text-white py-3 flex gap-5 items-center'
+						className='text-white py-3 flex gap-5 items-center'
+						variant='contained'
+						color='primary'
 						type='submit'>
 						{loading && (
 							<CircularProgress size='25px' className='block text-white' />
 						)}
-						{t("tutorials.login.form.fields.button")}
+						{t("codeUp.login.form.fields.button")}
 					</Button>
 					<Typography
 						className='text-center lg:text-left'
 						fontFamily='Montserrat'>
-						{t("tutorials.login.registerText.text")}
+						{t("codeUp.login.registerText.text")}
 						<Link href='/forgot-pass'>
 							<a className='no-underline text-black font-semibold'>
-								{t("tutorials.login.registerText.link")}
+								{t("codeUp.login.registerText.link")}
 							</a>
 						</Link>
 					</Typography>
@@ -185,4 +189,4 @@ const LoginPage = () => {
 	);
 };
 
-export default LoginPage;
+export default LoginContainer;

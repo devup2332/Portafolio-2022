@@ -11,10 +11,9 @@ const TutorialsSidebar = () => {
 	return (
 		<Drawer
 			open={openTutorialsSidebar}
-			onClose={() => dispatch(setTutorialsSidebarAction(false))}
-		>
-			<Typography variant="h5" className="font-bold">
-        Tutorials
+			onClose={() => dispatch(setTutorialsSidebarAction(false))}>
+			<Typography variant='h5' className='font-bold'>
+				CodeUp
 			</Typography>
 		</Drawer>
 	);

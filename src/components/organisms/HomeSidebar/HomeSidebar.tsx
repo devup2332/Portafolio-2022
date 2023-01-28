@@ -1,4 +1,5 @@
 import {
+	Button,
 	IconButton,
 	ListItemIcon,
 	ListItemText,
@@ -10,7 +11,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useTranslation } from "react-i18next";
 import { MouseEvent, useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../store/store";
-import CustomButton from "../../atoms/CustomButton/CustomButton";
 import { changeLanguage } from "i18next";
 import { languageOptions } from "../../../lib/utils/LanguageOptions";
 import { headerLinks } from "../../../lib/utils/HeaderLinks";
@@ -64,9 +64,9 @@ const HomeSidebar = () => {
 							</Link>
 						</li>
 						<li className="py-2 cursor-pointer hover:text-accent transition-all">
-							<Link href="/tutorials">
+							<Link href="/codeup">
 								<a className="no-underline text-black py-2 cursor-pointer hover:text-accent transition-all block">
-									{t("home.sidebar.options.tutorials")}
+									{t("home.sidebar.options.codeUp")}
 								</a>
 							</Link>
 						</li>
@@ -87,7 +87,7 @@ const HomeSidebar = () => {
 					</ul>
 				</nav>
 				<div className="grid gap-5 justify-start">
-					<CustomButton
+					<Button
 						variant="text"
 						className="flex gap-3 w-fit"
 						onClick={(e: any) => {
@@ -103,7 +103,7 @@ const HomeSidebar = () => {
 									</div>
 								);
 						})}
-					</CustomButton>
+					</Button>
 					<Menu
 						open={openMenuLanguage}
 						anchorEl={buttonElement}

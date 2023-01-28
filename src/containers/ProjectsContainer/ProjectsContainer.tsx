@@ -29,7 +29,7 @@ const ProjectsContainer = () => {
 				{projects.map(({ image_url, links, description, title }, index) => {
 					return (
 						<div key={index} className='grid gap-6 lg:flex lg:gap-12'>
-							<div className='rounded-md justify-self-center h-fit  w-7/12 overflow-hidden h-full self-center lg:w-6/12'>
+							<div className='rounded-md justify-self-center  w-7/12 overflow-hidden h-fit self-center lg:w-6/12'>
 								<img src={image_url} alt='' />
 							</div>
 							<div className='grid gap-6 h-fit xl:gap-8 lg:w-5/12'>
