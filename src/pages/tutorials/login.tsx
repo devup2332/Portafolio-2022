@@ -1,6 +1,7 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
 	Button,
+	CircularProgress,
 	FormControl,
 	FormHelperText,
 	IconButton,
@@ -11,12 +12,20 @@ import {
 } from "@mui/material";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
+import {
+	Controller,
+	FieldValues,
+	SubmitHandler,
+	useForm,
+} from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import LoginImage from "../../assets/login.jpg";
 import { IconGithub, IconGoogle } from "../../components/atoms/icons";
+import { fetchLoginUser } from "../../lib/api/auth/login";
 import { emailRex } from "../../lib/utils/EmailRex";
+import { CredentialsLogin } from "../../models/login/credentials";
 
 type CustomControl = {
 	name: string;
@@ -53,11 +62,23 @@ const LoginPage = () => {
 		control,
 		formState: { errors },
 	} = useForm();
+	const [loading, setLoading] = useState(false);
 	const [showPass, setShowPass] = useState(false);
+	const router = useRouter();
 	const { t } = useTranslation("index");
 
-	const loginUser = (data: any) => {
-		console.log({ data });
+	const loginUser: SubmitHandler<FieldValues> = async (data) => {
+		setLoading(true);
+		const { status, message, token } = await fetchLoginUser(
+			data as CredentialsLogin
+		);
+		console.log({ status, message });
+		if (!status) {
+			return setLoading(false);
+		}
+		localStorage.setItem("CODE_UP_TOKEN", token);
+		setLoading(false);
+		router.replace("/tutorials/profile");
 	};
 	return (
 		<div>
@@ -72,7 +93,7 @@ const LoginPage = () => {
 				/>
 				<form
 					className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10/12 grid gap-5 z-10 bg-white px-5 py-10 rounded-xl max-w-lg 2xl:max-w-md lg:px-10 lg:py-16'
-					onSubmit={handleSubmit(loginUser)}>
+					onSubmit={handleSubmit(loginUser, (err) => console.log({ err }))}>
 					<Typography className='text-center text-3xl'>Sign In</Typography>
 					{controls.map(({ name, validations }, index) => {
 						return (
@@ -88,7 +109,7 @@ const LoginPage = () => {
 											{...field}
 											variant='outlined'>
 											<InputLabel>
-												{t(`tutorials.login.form.${name}`)}
+												{t(`tutorials.login.form.fields.${name}`)}
 											</InputLabel>
 											<OutlinedInput
 												endAdornment={
@@ -101,7 +122,7 @@ const LoginPage = () => {
 														</InputAdornment>
 													)
 												}
-												label={t(`tutorials.login.form.${name}`)}
+												label={t(`tutorials.login.form.fields.${name}`)}
 												type={
 													name === "email"
 														? "text"
@@ -111,7 +132,11 @@ const LoginPage = () => {
 												}
 											/>
 											{errors[name] && (
-												<FormHelperText>Error en este campo</FormHelperText>
+												<FormHelperText>
+													{t(
+														`tutorials.login.form.errors.${name}.${errors[name]?.type}`
+													)}
+												</FormHelperText>
 											)}
 										</FormControl>
 									);
@@ -120,21 +145,32 @@ const LoginPage = () => {
 						);
 					})}
 					<Link href='/forgot-pass'>
-						<a className='no-underline text-black'>
-							<Typography className='font-semibold' fontFamily="Montserrat">
-								Forgot your password ?
+						<a className='no-underline text-black  lg:w-fit'>
+							<Typography
+								className='font-semibold text-center lg:text-left'
+								fontFamily='Montserrat'>
+								{t("tutorials.login.forgotPassText")}
 							</Typography>
 						</a>
 					</Link>
-					<Button className='bg-secondPrimary text-white py-3' type='submit'>
-						Sign In
+					<Button
+						className='bg-secondPrimary text-white py-3 flex gap-5 items-center'
+						type='submit'>
+						{loading && (
+							<CircularProgress size='25px' className='block text-white' />
+						)}
+						{t("tutorials.login.form.fields.button")}
 					</Button>
-					<Link href='/forgot-pass'>
-						<Typography className='' fontFamily='Montserrat'>
-							Dont you have an account ?
-							<a className='no-underline text-black font-semibold'> Register</a>
-						</Typography>
-					</Link>
+					<Typography
+						className='text-center lg:text-left'
+						fontFamily='Montserrat'>
+						{t("tutorials.login.registerText.text")}
+						<Link href='/forgot-pass'>
+							<a className='no-underline text-black font-semibold'>
+								{t("tutorials.login.registerText.link")}
+							</a>
+						</Link>
+					</Typography>
 					<div className='flex justify-center gap-5'>
 						<IconButton>
 							<IconGoogle />

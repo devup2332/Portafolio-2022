@@ -6,6 +6,6 @@ const { API_HOST } = publicRuntimeConfig;
 
 export const environments = {
 	API: {
-		HOST: API_HOST,
+		HOST: API_HOST || "",
 	},
 };

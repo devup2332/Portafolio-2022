@@ -11,6 +11,7 @@ module.exports = {
 			},
 			fontFamily: {
 				Commissioner: "Commissioner",
+				Montsserrat: "Montserrat",
 			},
 			maxWidth: {
 				"8xl": "1500px",
