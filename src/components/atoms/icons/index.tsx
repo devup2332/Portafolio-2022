@@ -6,3 +6,4 @@ export { default as IconUnitedStates } from "./IconUnitedStates";
 export { default as IconSpain } from "./IconSpain";
 export { default as IconWeb } from "./IconWeb";
 export { default as IconFigma } from "./IconFigma";
+export { default as IconGoogle} from "./IconGoogle";

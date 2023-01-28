@@ -68,5 +68,30 @@
 		"title": "Successfull Messaging",
 		"description": "Ive recieve your message and i will contact you as soon as possible",
 		"button": "Go Home"
+	},
+	"tutorials": {
+		"login": {
+			"form": {
+				"fields": {
+					"email": "Email",
+					"password": "Password",
+					"button": "Sign In"
+				},
+				"errors": {
+					"email": {
+						"required": "Email is required",
+						"pattern": "This email is invalid"
+					},
+					"password": {
+						"required": "Password is required"
+					}
+				}
+			},
+			"forgotPassText": "Forgot your password ?",
+			"registerText": {
+				"text": "Dont you have an account ?",
+				"link": " Register"
+			}
+		}
 	}
 }

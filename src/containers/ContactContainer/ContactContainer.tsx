@@ -126,14 +126,14 @@ const ContactContainer = () => {
 	);
 
 	return (
-		<div className="text-white max-w-md py-20 h-screen w-10/12 m-auto lg:py-32 lg:max-w-8xl 3xl:py-48">
-			<div className="grid gap-10 lg:gap-20">
-				<h1 className="text-center lg:text-left lg:text-5xl 2xl:text-6xl 3xl:text-8xl">
+		<div className='text-white max-w-md py-20 h-screen w-10/12 m-auto lg:py-32 lg:max-w-8xl 3xl:py-48'>
+			<div className='grid gap-10 lg:gap-20'>
+				<h1 className='text-center lg:text-left lg:text-5xl 2xl:text-6xl 3xl:text-8xl'>
 					{t("contact.title")}
 				</h1>
-				<div className="lg:flex lg:gap-20 2xl:gap-32">
+				<div className='lg:flex lg:gap-20 2xl:gap-32'>
 					<form
-						className="grid gap-4 lg:w-6/12 lg:gap-10 2xl:grid-cols-8"
+						className='grid gap-4 lg:w-6/12 lg:gap-10 2xl:grid-cols-8'
 						onSubmit={onSubmit}>
 						{controls.map(({ type, name, validations, className }, index) => {
 							return (
@@ -152,7 +152,8 @@ const ContactContainer = () => {
 													rows={name === "message" ? 6 : 1}
 													type={type}
 													onChange={(e) => {
-														if (name === "code") setValue("code", e.target.value);
+														if (name === "code")
+															setValue("code", e.target.value);
 													}}
 													label={t(`contact.form.fields.${name}`)}>
 													{name === "code" &&
@@ -179,16 +180,16 @@ const ContactContainer = () => {
 							);
 						})}
 						<Button
-							variant="contained"
-							color="secondary"
-							className="py-2 2xl:col-start-1 2xl:col-end-9 flex gap-3"
-							type="submit">
-							{loading && <CircularProgress color="inherit" size={30} />}
+							variant='contained'
+							color='secondary'
+							className='py-2 2xl:col-start-1 2xl:col-end-9 flex gap-3'
+							type='submit'>
+							{loading && <CircularProgress color='inherit' size={30} />}
 							{t("contact.form.button")}
 						</Button>
 					</form>
-					<div className="hidden w-full lg:block lg:w-6/12">
-						<ContactVector className="w-full h-full" />
+					<div className='hidden w-full lg:block lg:w-6/12'>
+						<ContactVector className='w-full h-full' />
 					</div>
 				</div>
 			</div>
